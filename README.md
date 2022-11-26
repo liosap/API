@@ -5,7 +5,7 @@ https://www.youtube.com/watch?v=OFBOx8WWXJI&list=PLwJmX01ylPH23xuqRmYtgVCWDd2rr_
 https://www.youtube.com/watch?v=dycnVkVb6Ug&list=PLwJmX01ylPH23xuqRmYtgVCWDd2rr_V5P&index=11
 
 ## Estructura
-´´´
+
  public
   |--.htaccess
   |--index.php
@@ -27,7 +27,7 @@ https://www.youtube.com/watch?v=dycnVkVb6Ug&list=PLwJmX01ylPH23xuqRmYtgVCWDd2rr_
   |--Routes
       |--auth.php
       |--user.php
-´´´
+
 public: contiene los archivos públicos
 src: contiene la lógica de la aplicación
 
@@ -44,7 +44,7 @@ src: contiene la lógica de la aplicación
 ## API
 
 Estructura de tabla para la tabla `usuario`
-´´´
+
 CREATE TABLE `usuario` (
   `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `nombre` varchar(20) NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE `usuario` (
   `IDToken` varchar(500) NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-´´´
+
 ## USO DE LA API
 
 ### Login de usuario (GET)
