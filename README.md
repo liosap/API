@@ -2,7 +2,7 @@
 
 https://github.com/hnelson9402/API_REST_PHP_8
 https://www.youtube.com/watch?v=OFBOx8WWXJI&list=PLwJmX01ylPH23xuqRmYtgVCWDd2rr_V5P
-https://www.youtube.com/watch?v=dycnVkVb6Ug&list=PLwJmX01ylPH23xuqRmYtgVCWDd2rr_V5P&index=11
+https://www.youtube.com/watch?v=DjAS77VK_uo&list=PLwJmX01ylPH23xuqRmYtgVCWDd2rr_V5P&index=12
 
 ## Estructura
 
@@ -30,6 +30,12 @@ https://www.youtube.com/watch?v=dycnVkVb6Ug&list=PLwJmX01ylPH23xuqRmYtgVCWDd2rr_
 
 public: contiene los archivos públicos
 src: contiene la lógica de la aplicación
+
+## Control de acceso HTTP (CORS)
+El Intercambio de Recursos de Origen Cruzado (CORS) es un mecanismo que utiliza cabeceras HTTP adicionales para permitir que un user agent (en-US) obtenga permiso para acceder a recursos seleccionados desde un servidor, en un origen distinto (dominio) al que pertenece. Un agente crea una petición HTTP de origen cruzado cuando solicita un recurso desde un dominio distinto, un protocolo o un puerto diferente al del documento que lo generó.
+API Fetch siguen la política de mismo-origen, esto significa que una aplicación que consume la API sólo puede hacer solicitudes HTTP desde su propio dominio, a menos que se utilicen cabeceras CORS.
+
+En CORS, se envía una solicitud de verificación previa con el método OPTIONS para que el servidor pueda responder si es aceptable enviar la solicitud.
 
 ## Librerias
 

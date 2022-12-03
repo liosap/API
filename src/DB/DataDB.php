@@ -19,7 +19,7 @@ $data = array(
     'port'     => $_ENV['PORT']
 );
 
-//Validamos el tipo de Base de Datos
+//Validamos el tipo de Base de Datos (MySql o SqlServer)
 if(empty($data['serverDB']) || empty($data['user']) || empty($data['DB']) || empty($data['IP']) || empty($data['port']) ){
 
     error_log('Campos de la DB vacios');

@@ -5,6 +5,12 @@ use App\Config\ResponseHttp;
 
 require_once dirname(__DIR__).'/vendor/autoload.php';
 
+if (isset($_SERVER['HTTP_REFERER'])){
+  ResponseHttp::headerHttpPro($_SERVER['REQUEST_METHOD'], $_SERVER['HTTP_REFERER']);//CORS Producción
+} else {
+  ResponseHttp::headerHttpDev($_SERVER['REQUEST_METHOD']);//CORS Desarrollo
+}
+
 //Activa el registro de errores
 ErrorLog::activateErrorLog();
 
