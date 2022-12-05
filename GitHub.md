@@ -70,6 +70,8 @@ git remote add origin https://github.com/liosap/api.git
 git branch -M main
 git push -u origin main
 
+Para descarga desde un repositorio remoto y actualizar el repo local
+git pull https://github.com/liosap/api.git
 
 https://www.datacamp.com/tutorial/git-push-pull
 https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud
