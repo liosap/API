@@ -3,6 +3,7 @@
 use Dotenv\Dotenv;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
+use Bulletproof\Image;
 
 class Security {
 
@@ -70,4 +71,30 @@ class Security {
       $jwt_decoded_array = json_decode(json_encode(self::$jwt_data), true);
       return $jwt_decoded_array['data'];
   }
+
+  //Subir Imagen al servidor
+  final public static function uploadImage($file, $name)
+  {
+    $file = new Image($file);
+
+    $file->setMime(array('png','jpg','jpeg'));//formatos admitidos
+    $file->setSize(10000,500000);//Tamaño admitidos es Bytes (10kb hasta 50Kb)
+    $file->setDimension(256,256);//Dimensiones admitidas en Pixeles
+    $file->setStorage('public/Images');//Nombre de carpeta para almacenar la imagen cargada, con permiso chmod (opcional)
+
+    if ($file[$name]) {
+      $upload = $file->upload();            
+      if ($upload) {
+        $imgUrl = dirname(__DIR__, 2) .'/public/Images/'. $upload->getName().'.'.$upload->getMime();
+        $data = [
+          'path' => $imgUrl,
+          'name' => $upload->getName() .'.'. $upload->getMime()
+        ];
+        return $data;               
+      } else {
+        die(json_encode(ResponseHttp::status400($file->getError())));               
+      }
+    }
+  }
+  
 }

@@ -117,7 +117,7 @@ class UserModel extends ConnectionDB {
     } else if (Sql::isExists("SELECT correo FROM usuario WHERE correo = :correo",":correo",self::getEmail())) {
       return ResponseHttp::status400('El Correo ya esta registrado');
     } else {
-      self::setIDToken(hash('sha512',self::getDni().self::getEmail()));            
+      self::setIDToken(hash('sha512',self::getDni().self::getEmail()));
       try {
         $con = self::getConnection();
         $query1 = "INSERT INTO usuario (nombre,dni,correo,rol,password,IDToken) VALUES";
@@ -129,7 +129,7 @@ class UserModel extends ConnectionDB {
             ':correo'  => self::getEmail(),
             ':rol'     => self::getRol(),                    
             ':password'=> Security::encryptPass(self::getPassword()),
-            ':IDToken' => self::getIDToken()            
+            ':IDToken' => self::getIDToken()
         ]);
         if ($query->rowCount() > 0) {
             return ResponseHttp::status200('Usuario registrado exitosamente');

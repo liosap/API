@@ -71,10 +71,10 @@ class ResponseHttp {
   final public static function headerHttpPro($method, $origin)
   {
     if (!isset($origin)) {
-      ResponseHttp::status401('No tiene autorizacion para consumir esta API');
+      die(json_encode(ResponseHttp::status401('No tiene autorizacion para consumir esta API')));
     }
 
-    $list = ['']; //Dominios con autorizacion para consumir la API
+    $list = ['http://nibiru.test']; //Dominios con autorizacion para consumir la API
 
     if (in_array($origin, $list)){
       if ($method == 'OPTIONS') {
@@ -90,7 +90,7 @@ class ResponseHttp {
         header('Content-Type: application/json'); 
       }
     } else {
-      ResponseHttp::status401('No tiene autorizacion para consumir esta API');
+      die(json_encode(ResponseHttp::status401('No tiene autorizacion para consumir esta API')));
     }       
   }
 }

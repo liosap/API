@@ -15,7 +15,7 @@ class UserController
     private string $routes,
     private array $params,
     private $headers,
-    private $data
+    private $data,
   ){}
 
   final public function getLogin(string $endPoint)
@@ -65,6 +65,7 @@ class UserController
   {
     if ($this->method == 'post' && $this->routes == $endPoint){
       Security::checkToken(Security::getSecretKey()); //Validamos el JWT antes de realizar la operación.
+
       if (empty($this->data['name']) || empty($this->data['dni']) || empty($this->data['email']) || 
           empty($this->data['rol']) || empty($this->data['password']) || empty($this->data['confirmPassword'])){
         return ResponseHttp::status400('Todos los campos son requeridos');
@@ -81,6 +82,7 @@ class UserController
       } elseif ($this->data['password'] != $this->data['confirmPassword']) {
         return ResponseHttp::status400('Las contraseñas no coinciden');
       } else {
+        new UserModel($this->data);
         return UserModel::saveUser();
       }
     } else {
